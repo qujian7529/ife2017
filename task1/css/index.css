@@ -1,0 +1,104 @@
+body {
+  background: rgba(0, 255, 0, 0.1);
+}
+
+h1 {
+  margin-left: 40px;
+}
+
+form:first-of-type {
+  display: flex;
+  justify-content: space-around;
+  width: 150px;
+}
+form:first-of-type label {
+  display: block;
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  background-clip: content-box;
+}
+form:first-of-type input[type="radio"] {
+  display: none;
+}
+form:first-of-type input[type="radio"]:checked + label {
+  background-color: red;
+  border-color: red;
+}
+
+form:nth-of-type(2) {
+  display: flex;
+  justify-content: space-around;
+  width: 150px;
+}
+form:nth-of-type(2) label {
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 10%;
+  border: 1px solid #ccc;
+}
+form:nth-of-type(2) input[type="checkbox"] {
+  display: none;
+}
+form:nth-of-type(2) input[type="checkbox"]:checked + label {
+  position: relative;
+  border-color: red;
+}
+form:nth-of-type(2) input[type="checkbox"]:checked + label:after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 5px;
+  left: 13px;
+  width: 10px;
+  height: 20px;
+  border: 2px solid red;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+form:nth-of-type(3) {
+  display: flex;
+  justify-content: space-around;
+  width: 150px;
+}
+form:nth-of-type(3) label {
+  display: block;
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  background: url("../img/task1.png") no-repeat 0 0;
+}
+form:nth-of-type(3) input[type="radio"] {
+  display: none;
+}
+form:nth-of-type(3) input[type="radio"]:checked + label {
+  background-position: -45px 0;
+}
+
+form:nth-of-type(4) {
+  display: flex;
+  justify-content: space-around;
+  width: 150px;
+}
+form:nth-of-type(4) label {
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  background: url("../img/task1.png") no-repeat 0 -45px;
+}
+form:nth-of-type(4) input[type="checkbox"] {
+  display: none;
+}
+form:nth-of-type(4) input[type="checkbox"]:checked + label {
+  background-position: -45px -45px;
+}
+
+/*# sourceMappingURL=index.css.map */

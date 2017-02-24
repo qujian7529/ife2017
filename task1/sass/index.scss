@@ -1,0 +1,108 @@
+body{
+  background:rgba(0,255,0,0.1);
+}
+h1{
+  margin-left:40px;
+}
+// css实现radio
+form:first-of-type{
+  display:flex;
+  justify-content:space-around;
+  width:150px;
+  label{
+    display:block;
+    box-sizing:border-box;
+    width:40px;
+    height:40px;
+    padding:10px;
+    border-radius:50%;
+    border:1px solid #ccc;
+    background-clip:content-box;
+  }
+  input[type="radio"]{
+    display:none;
+    &:checked + label{
+      background-color:red;
+      border-color:red;
+    }
+  }
+}
+// css实现checkbox
+form:nth-of-type(2){
+  display:flex;
+  justify-content:space-around;
+  width:150px;
+  label{
+    box-sizing:border-box;    
+    width:40px;
+    height:40px;
+    padding:10px;
+    border-radius:10%;
+    border:1px solid #ccc;
+  }
+  input[type="checkbox"]{
+    display:none;
+    &:checked + label{
+      position:relative;
+      border-color:red;
+      &:after{
+        content:"";
+        position: absolute;
+        display:block;
+        top:5px;
+        left:13px;
+        width:10px;
+        height:20px;
+        border:2px solid red{
+          top:none;
+          left:none;
+        };
+        transform:rotate(45deg);
+      }
+    }
+  }
+}
+// 背景图实现radio
+form:nth-of-type(3){
+  display:flex;
+  justify-content:space-around;
+  width:150px;
+  label{
+    display:block;
+    box-sizing:border-box;
+    width:40px;
+    height:40px;
+    padding:10px;
+    background:url("../img/task1.png") no-repeat 0 0;
+  }
+  input[type="radio"]{
+    display:none;
+    &:checked + label{
+      background-position:-45px 0;
+    }
+  }
+}
+// 背景图实现checkbox
+form:nth-of-type(4){
+  display:flex;
+  justify-content:space-around;
+  width:150px;
+  label{
+    box-sizing:border-box;    
+    width:40px;
+    height:40px;
+    background:url("../img/task1.png") no-repeat 0 -45px;
+  }
+  input[type="checkbox"]{
+    display:none;
+    &:checked + label{
+      background-position:-45px -45px;
+    }
+  }
+}
+
+
+
+
+
+
