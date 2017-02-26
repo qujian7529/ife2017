@@ -1,0 +1,113 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
+  margin: 0;
+  padding: 0;
+}
+
+body, button, input, select, textarea {
+  font: 12px/1.5 tahoma, arial;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+}
+
+address, cite, dfn, em, var {
+  font-style: normal;
+}
+
+code, kbd, pre, samp {
+  font-family: couriernew, courier, monospace;
+}
+
+small {
+  font-size: 12px;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+sup {
+  vertical-align: text-top;
+}
+
+sub {
+  vertical-align: text-bottom;
+}
+
+legend {
+  color: #000;
+}
+
+fieldset, img {
+  border: 0;
+}
+
+button, input, select, textarea {
+  font-size: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+section div {
+  width: 150px;
+  border: 1px solid red;
+  flex-shrink: 0;
+}
+section div:nth-of-type(1) {
+  height: 120px;
+}
+section div:nth-of-type(2) {
+  height: 100px;
+}
+section div:nth-of-type(3) {
+  height: 40px;
+}
+section div:nth-of-type(4) {
+  height: 200px;
+  border-color: #00f;
+}
+
+@media screen and (max-width: 640px) {
+  section {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+  section div:nth-of-type(1) {
+    order: 2;
+  }
+  section div:nth-of-type(2) {
+    order: 3;
+  }
+  section div:nth-of-type(3) {
+    order: 4;
+    margin-top: 20px;
+  }
+  section div:nth-of-type(4) {
+    order: 1;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */
