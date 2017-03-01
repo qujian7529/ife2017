@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>任务四：基础JavaScript练习（一）</title>
+</head>
+<style>
+ul{
+  padding:0;
+  margin:10px 0 0 0 ;
+}
+  li{
+    float:left;
+    padding:15px 25px;
+    background:red;
+    list-style:none;
+    color:#fff;
+  }
+  #leftOut{
+    margin-left:20px;
+  }
+</style>
+<body>
+  <input type="text" name="text" id="text">
+  <input type="button" name="left" id="left" value="左侧入">
+  <input type="button" name="right" id="right" value="右侧入">
+  <input type="button" name="leftOut" id="leftOut" value="左侧出">
+  <input type="button" name="rightOut" id="rightOut" value="右侧出">
+  <ul></ul>
+</body>
+<script>
+  var oUl = document.getElementsByTagName('ul')[0];
+  var aLi  = document.getElementsByTagName('li');
+  function li(num,direction,operation){
+    var node = document.createElement('li');
+    var nodeText = document.createTextNode(num);
+    node.appendChild(nodeText);
+    if(direction){
+      if(oUl.hasChildNodes()){
+        if(operation){
+          oUl.insertBefore(node,oUl.firstChild);
+        }else{
+          oUl.removeChild(oUl.firstChild);
+        }
+      }else{
+        if(operation){
+          oUl.appendChild(node);
+        }else{
+          alert('没有节点可以删除');
+        }
+      }
+    }else{
+      if(operation){
+        oUl.appendChild(node);
+      }else{
+        if(oUl.hasChildNodes()){
+          oUl.removeChild(oUl.lastChild);
+        }else{
+          alert('没有节点可以删除');
+        }
+      }
+    }
+  }//数字  true:left false:right     true:加  false:删
+  var aBtn = document.querySelectorAll('[type=button]');
+  var oText = document.querySelector('[type=text]')
+  aBtn[0].onclick=function(){
+    if(oText.value ==''){
+      alert('请输入数字');
+      return ;
+    }
+    li(oText.value,true,true);
+    onClickLi()
+  }
+  aBtn[1].onclick=function(){
+    if(oText.value ==''){
+      alert('请输入数字');
+      return ;
+    }
+    li(oText.value,false,true);
+    onClickLi()
+  }
+  aBtn[2].onclick=function(){
+    li(0,true,false);
+  }
+  aBtn[3].onclick=function(){
+    li(0,false,false);
+  }
+  function onClickLi(){
+    for(let i = 0 ;i<aLi.length;i++){
+      aLi[i].onclick=function(){
+      oUl.removeChild(this);
+    }
+  }
+    
+  }
+  
+</script>
+</html>
