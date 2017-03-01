@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>
+任务三：表单（三）联动</title>
+<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <section>
+    <div class="state">
+      <label for="school">
+        <input type="radio" name="school" id="school" value="在校生" checked><span>在校生</span>
+      </label>
+      <label for="school2">
+        <input type="radio" name="school" id="school2" value="非在校生"><span>非在校生</span>
+      </label>
+    </div>
+    <div class="case">
+      <div class="atSchool">
+        <span>学校</span>
+        <select>
+          <option value="北京">北京</option>
+          <option value="上海">上海</option>
+          <option value="湖南">湖南</option>
+          <option value="山西">山西</option>
+        </select>
+        <select>
+          <option value="北京大学">北京大学</option>
+          <option value="北京二大学">北京二大学</option>
+          <option value="北京三大学">北京三大学</option>
+          <option value="北京四大学">北京四大学</option>
+        </select>
+      </div>
+      <div class="notSchool no">
+          <span>就业单位</span>
+          <input type="text" id="text" name=tex"">
+      </div>
+    </div>
+  </section>
+</body>
+<script src="js/index.js"></script>
+</html>
