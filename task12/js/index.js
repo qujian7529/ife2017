@@ -119,8 +119,7 @@ window.onload=function(){
         }
       }
     }
-  }
-
+  }//.size属性是li的数值大小  用高来展示这个数值大小
   //生成随机li
   function randomNum(start,end){
     var num = Math.round(Math.random()*(end-start) +start);
