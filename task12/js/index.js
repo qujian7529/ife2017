@@ -105,18 +105,16 @@ window.onload=function(){
     for(let i = 0;i<aLi.length;i++){
       for(let j = i;j<aLi.length;j++){
         if(aLi[i].size>aLi[j].size){
-          // setTimeout(function(){
-            let tempS = aLi[i].size;
-            aLi[i].size = aLi[j].size;
-            aH1[i].firstChild.nodeValue = aLi[j].size;
-            aLi[j].size = tempS;
-            aH1[j].firstChild.nodeValue = tempS;
-
+          let tempS = aLi[i].size;
+          aLi[i].size = aLi[j].size;
+          aH1[i].firstChild.nodeValue = aLi[j].size;
+          aLi[j].size = tempS;
+          aH1[j].firstChild.nodeValue = tempS;
+          setTimeout(function(){
             let tempH = getComputedStyle(aLi[i]).height; 
             aLi[i].style.height = getComputedStyle(aLi[j]).height;
             aLi[j].style.height = tempH;
-          // },10)
-        }
+          },++time*10);          
       }
     }
   }//.size属性是li的数值大小  用高来展示这个数值大小
