@@ -99,9 +99,10 @@ window.onload=function(){
   }//点击li 将会删除此节点
   
   //排序可视化
-  var time = 0;
+
   var timer = null;
   aBtn[4].onclick=function(){
+    var time = 0;
     for(let i = 0;i<aLi.length;i++){
       for(let j = i;j<aLi.length;j++){
         if(aLi[i].size>aLi[j].size){
@@ -111,10 +112,16 @@ window.onload=function(){
           aLi[j].size = tempS;
           aH1[j].firstChild.nodeValue = tempS;
           setTimeout(function(){
+            aLi[i].classList.add('yellow');
+            aLi[j].classList.add('yellow');
             let tempH = getComputedStyle(aLi[i]).height; 
             aLi[i].style.height = getComputedStyle(aLi[j]).height;
             aLi[j].style.height = tempH;  
-          },++time*10);
+            setTimeout(function(){
+              aLi[i].classList.remove('yellow');
+              aLi[j].classList.remove('yellow');
+            },30);
+          },++time*30);
         }
       }
     }
