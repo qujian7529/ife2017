@@ -138,5 +138,5 @@ window.onload=function(){
     }else{
       alert('已经60个了！');
     }
-  };
+  }  
 }
