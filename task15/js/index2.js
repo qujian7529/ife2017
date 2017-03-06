@@ -42,7 +42,7 @@ window.onload=function(){
 	}//加 动画
 	
 	function detectionChar(node){
-		if(node.text.indexOf(str) != -1){
+		if(str!=''&&node.text.indexOf(str) != -1){
 			aFind.push(node);
 			setTimeout(function(){
 				node.classList.add('yellow');
