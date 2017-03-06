@@ -2,61 +2,58 @@
 <html lang="zh-CN">
 <head>
 	<meta charset="UTF-8">
-	<title>任务七：JavaScript和树（一）</title>
+	<title>任务八：JavaScript和树（二）</title>
 	<link rel="stylesheet" href="css/index.css">
+	<script src="js/index2.js"></script>
 </head>
 <body>
 	<section class="set">
 		<input type="button" value="前序遍历">
-		<input type="button" value="中序遍历">
+		<input type="text" id="previous" placeholder="前序遍历">
+		<label for="previous">previous遍历</label>
 		<input type="button" value="后续遍历">
+		<input type="text" id="next"  placeholder="后续遍历">
+		<label for="next">next遍历</label>
 	</section>
 	<div class="root">
-		<div class="left">
-			<div class="left">
-				<div class="left">
-					<div class="left"></div>
-					<div class="right"></div>
-				</div>
-				<div class="right">
-					<div class="left"></div>
-					<div class="right"></div>
-				</div>
+		Super
+		<div>
+			Left
+			<div>
+				Apple
+				<div>Peor</div>
+				<div>Pig</div>
+				<div>Color</div>
+				<div>Soccer</div>
 			</div>
-			<div class="right">
-				<div class="left">
-					<div class="left"></div>
-					<div class="right"></div>
-				</div>
-				<div class="right">
-					<div class="left"></div>
-					<div class="right"></div>
-				</div>
+			<div>
+				Phone
+			</div>
+			<div>
+				<div>Book</div>
+				<div>School</div>
 			</div>
 		</div>
-		<div class="right">
-			<div class="left">
-				<div class="left">
-					<div class="left"></div>
-					<div class="right"></div>
-				</div>
-				<div class="right">
-					<div class="left"></div>
-					<div class="right"></div>
-				</div>
+		<div>
+			Note
+			<div>
+				Hurmgin
+				<div>Code</div>
+				<div>Operate</div>
+				<div>Man</div>
 			</div>
-			<div class="right">
-				<div class="left">
-					<div class="left"></div>
-					<div class="right"></div>
+			<div>
+				Progonm
+				<div>
+					Element
+					<div>Cat</div>
 				</div>
-				<div class="right">
-					<div class="left"></div>
-					<div class="right"></div>
-				</div>
+				<div>Class</div>
 			</div>
+		</div>
+		<div>
+			Fish
 		</div>
 	</div>
 </body>
-<script src="js/index2.js"></script>
 </html>
