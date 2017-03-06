@@ -79,16 +79,12 @@ window.onload=function(){
       }
   }
   aBtn[2].onclick=function(){
-      if(valueNum()){
         createLi(oText.value,true,false);
         remove();
-      }
 }
   aBtn[3].onclick=function(){
-      if(valueNum()){
         createLi(oText.value,false,false);
         remove();
-      }
   }
   function remove(){
     for(let i =0;i<aLi.length;i++){
