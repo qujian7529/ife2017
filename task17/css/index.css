@@ -67,9 +67,20 @@ div.board .pieces {
   position: absolute;
   left: 0;
   top: 0;
-}
-div.board .piecesT {
+  transition: all 0.5s;
   background: linear-gradient(0deg, #f00 70%, #00f 20%);
+}
+div.board .rotateL {
+  transform: rotate(90deg);
+  transition: transform 0.5s;
+}
+div.board .rotateR {
+  transform: rotate(-90deg);
+  transition: transform 0.5s;
+}
+div.board .rotateL180 {
+  transform: rotate(180deg);
+  transition: transform 0.5s;
 }
 div.board .piecesB {
   background: linear-gradient(180deg, #f00 70%, #00f 20%);

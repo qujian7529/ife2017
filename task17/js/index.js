@@ -1,92 +1,11 @@
 window.onload=function(){
-    console.log
     let oHeader = document.querySelector('.header>ul');
     let oAside = document.querySelector('aside>ul');
     let oBoard = document.querySelector('.board');
     let oPieces = document.querySelector('.pieces');
     let oBtn = document.querySelector('[type=button]');
     let oText = document.getElementById("text");
-    let deg = 1;
-    let className = 'piecesR';
-    // 0 1 2 3   4个方向 上右 下 左
-    oPieces.left=function(){
-        let left = parseInt(getComputedStyle(this).left);
-        if(left>=40){
-            this.style.left = left - 40 + 'px';
-            oPieces.go=arguments.callee;      
-        }else{
-            alert("撞墙了！");
-        } 
-    }
-    oPieces.right=function(){
-        let left = parseInt(getComputedStyle(this).left);
-        if(left<=320){
-            this.style.left = left + 40 + 'px';
-            oPieces.go=arguments.callee;      
-        }else{
-            alert("撞墙了！");
-        } 
-    }
-    oPieces.top=function(){
-        let top = parseInt(getComputedStyle(this).top);
-        if(top>=40){
-            this.style.top = top - 40 + 'px';      
-            oPieces.go=arguments.callee;      
-        }else{
-            alert("撞墙了！");
-        } 
-    }
-    oPieces.bottom=function(){
-        let top = parseInt(getComputedStyle(this).top);
-        if(top<360){
-            this.style.top = top + 40 + 'px';      
-            oPieces.go=arguments.callee;      
-        }else{
-            alert("撞墙了！");
-        } 
-    }
-    oPieces.addRemove = function(add,remove){
-        this.classList.add(add);
-        this.classList.remove(remove);
-    }
-    oPieces.go = oPieces.right;
-    function detectionChar(){
-        if(oText.value==''){   
-            alert("不能为空")
-            return;
-        }else if(oText.value=='GO'){
-            console.log(oPieces.go);
-            oPieces.go();
-            return;
-        }else if(oText.value =='TUN LEF'){
-            deg +=1;
-        }else if(oText.value =='TUN RIG'){
-            deg +=1;
-        }else if(oText.value =='TUN BAG'){
-            deg +=2;
-        }
-        onMove(deg);
-    }
-    function onMove(num){
-        num %=4;
-        if(num==0){
-            oPieces.addRemove('piecesT',className);
-            className = 'piecesT';
-            oPieces.go = oPieces.top;
-        }else if(num==1){
-            oPieces.addRemove('piecesR',className);
-            className = 'piecesR';
-            oPieces.go = oPieces.right;
-        }else if(num==2){
-            oPieces.addRemove('piecesB',className);
-            className = 'piecesB';
-            oPieces.go = oPieces.bottom;
-        }else if(num==3){
-            oPieces.addRemove('piecesL',className);
-            className = 'piecesL';
-            oPieces.go = oPieces.left;
-        }
-    }
+   
     function createNode(node,string){
         let n = document.createElement(node);
         if(string){
@@ -99,8 +18,90 @@ window.onload=function(){
         oHeader.appendChild(createNode('li',i+1));
         oAside.appendChild(createNode('li',i+1));
     }//生成 标尺
-    oBtn.onclick=function(){
-        detectionChar();
-    }
     
+    
+    oPieces.detectionChar =function(str){
+        switch(str){
+            case 'TRA LEF':
+                oPieces.onMove('left');
+                break;
+            case 'TRA TOP':
+                oPieces.onMove('top');
+                break;
+            case 'TRA RIG':
+                oPieces.onMove('right');
+                break;
+            case 'TRA BOT':
+                oPieces.onMove('bottom');
+                break;
+            case 'MOV LEF':
+                oPieces.onMove('left',-90);
+                break;
+            case 'MOV TOP':
+                oPieces.onMove('top',0);
+                break;
+            case 'MOV RIG':
+                oPieces.onMove('right',90);
+                break;
+            case 'MOV BOT':
+                oPieces.onMove('bottom',180);
+                break;  
+            default:
+                alert('输入的指令有误');  
+        }
+    }
+    oPieces.onMove = function(attr,deg){
+        this.move(attr);
+        this.rotate(deg);
+    }
+    oPieces.move=function (attr){
+        let left = parseInt(getComputedStyle(this).left);
+        let top = parseInt(getComputedStyle(this).top);   
+        if(left%40!=0||top%40!=0){
+            return false;
+        } 
+        if(attr=='left'){
+            if(left>=40){
+                this.style.left = left - 40 + 'px';
+            }else{
+                alert("撞墙了！");
+            }
+            return;
+        };
+        if(attr=='right'){
+            if(left<=320){
+                this.style.left = left + 40 + 'px';
+            }else{
+                alert("撞墙了！");
+            }
+            return;
+        };
+        if(attr=='top'){
+            if(top>=40){
+                this.style.top = top - 40 + 'px';      
+            }else{
+                alert("撞墙了！");
+            }
+            return;
+        };
+        if(attr=='bottom'){
+            if(top<360){
+                this.style.top = top + 40 + 'px';      
+            }else{
+                alert("撞墙了！");
+            } 
+            return;
+        }
+    }//方向的移动
+    oPieces.rotate = function (deg){
+        this.style.transform = 'rotate('+deg+'deg)';
+        console.log(this.style.transform);
+    }//图像的旋转
+    oBtn.onclick=function(){
+        if(oText.value==''){
+            alert('请输入指令');
+        }else{
+            oPieces.detectionChar(oText.value);
+        }
+    }
 }

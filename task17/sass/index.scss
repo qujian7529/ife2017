@@ -61,9 +61,23 @@ div.board{
         position:absolute;
         left:0;
         top:0;
-    }       
-    .piecesT{
+        transition:all 0.5s;
         background:linear-gradient(0deg,#f00 70%,#00f 20%);
+    }
+    .rotateL{
+        transform:rotate(90deg);
+        transition:transform 0.5s;
+    }
+    .rotateR{
+        transform:rotate(-90deg);
+        transition:transform 0.5s;
+    }       
+    .rotateL180{
+        transform:rotate(180deg);
+        transition:transform 0.5s;
+    }
+    .piecesT{
+        
     }
     .piecesB{
         background:linear-gradient(180deg,#f00 70%,#00f 20%);
