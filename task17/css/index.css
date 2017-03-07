@@ -1,0 +1,90 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+section.box {
+  position: relative;
+  margin: 80px auto;
+  width: 400px;
+  height: 400px;
+  outline: 1px solid #000;
+}
+
+aside, .header {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+}
+aside ul, .header ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+aside ul li, .header ul li {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  line-height: 40px;
+  text-align: center;
+  color: #000;
+  font-size: 20px;
+}
+
+aside {
+  top: 0;
+  left: -40px;
+  width: 40px;
+  height: 100%;
+}
+aside ul {
+  flex-direction: column;
+}
+
+div.board {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(45deg, #000, #000 26%, transparent 26%, transparent 75%, #000 75%, #000), linear-gradient(45deg, #000 26%, transparent 26%, transparent 75%, #000 75%, #000);
+  background-size: 80px 80px;
+  background-position: 0 0, 40px 40px;
+}
+div.board .pieces {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+div.board .piecesT {
+  background: linear-gradient(0deg, #f00 70%, #00f 20%);
+}
+div.board .piecesB {
+  background: linear-gradient(180deg, #f00 70%, #00f 20%);
+}
+div.board .piecesL {
+  background: linear-gradient(-90deg, #f00 70%, #00f 20%);
+}
+div.board .piecesR {
+  background: linear-gradient(90deg, #f00 70%, #00f 20%);
+}
+
+p {
+  width: 400px;
+  margin: 0 auto;
+  text-align: justify;
+}
+
+/*# sourceMappingURL=index.css.map */

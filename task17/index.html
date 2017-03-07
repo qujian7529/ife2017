@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>任务四：听指令的小方块（一）</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <section class="box">
+        <div class="header">
+            <ul>
+            </ul>
+        </div>
+        <div class="board">
+            <div class="pieces piecesR"></div>
+        </div>
+        <aside>
+            <ul>
+            </ul>
+        </aside>
+         <div>
+            <input type="text" name="" id="text">
+            <input type="button" value="提交">
+        </div>
+    </section>
+   <p>
+       在输入框中允许输入如下指令，按下按钮后，使得正方形做相应动作<br>
+GO：向蓝色边所面向的方向前进一格（一格等同于正方形的边长）<br>
+TUN LEF：向左转（逆时针旋转90度）<br>
+TUN RIG：向右转（顺时针旋转90度）<br>
+TUN BAC：向右转（旋转180度）
+移动不能超出格子空间
+   </p>
+</body>
+<script src="js/index.js"></script>
+</html>
