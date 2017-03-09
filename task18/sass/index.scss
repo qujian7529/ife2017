@@ -7,7 +7,6 @@ html,body{
      height:100%;
 }
 .popup{
-    // display:none;
     position:fixed;
     width:100%;
     height:100%;
@@ -16,9 +15,10 @@ html,body{
     left:0;
     > div{
         width:400px;
+        height:200px;
         position:fixed;
         background:#fff;
-        overflow:hidden;
+        -webkit-user-select:none;/*webkit浏览器*/
         h1{
             font-size:30px;
             min-height:30px;
@@ -27,9 +27,6 @@ html,body{
             padding:10px;
         }
         p{
-            height:100%;
-            min-height:200px;
-            background:#fff;
             color:#999;
             padding:15px 10px;
         }
@@ -38,13 +35,13 @@ html,body{
             z-index:11;
             &.b{
                 right:0;
-                bottom:0;
+                bottom:-5px;
                 width:100%;
                 height:10px;
                 cursor:s-resize;
             }
             &.r{
-                right:0;
+                right:-5px;
                 bottom:0;
                 height:100%;
                 width:10px;
@@ -53,9 +50,9 @@ html,body{
             &.rb{
                 right:-5px;
                 bottom:-5px;
-                width:15px;
-                height:15px;
-                z-index:10;
+                width:20px;
+                height:20px;
+                z-index:12;
                 cursor:se-resize;
             }
         }
