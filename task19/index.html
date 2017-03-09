@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>任务七：UI组件之排序表格</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="table">
+        <ol>
+            <li item="name">姓名</li>
+            <li class="pointer" item="language" >语文</li>
+            <li class="pointer" item="math" >数学</li>
+            <li class="pointer" item="english" >英语</li>
+            <li class="pointer" item="add" >总分</li>
+        </ol>
+    </div>
+    <div class="data">
+        <input type="text" placeholder="姓名">
+        <input type="text" placeholder="语文成绩">
+        <input type="text" placeholder="数学成绩">
+        <input type="text" placeholder="英语成绩">
+        <input type="button" value="提交">
+    </div>
+    <p>
+        说明:<br>
+        点击语文进行排列，再次点击进行逆排列,
+    </p>
+</body>
+<script src="js/index.js"></script>
+</html>
