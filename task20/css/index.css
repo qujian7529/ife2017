@@ -1,0 +1,123 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+div.content {
+  cursor: pointer;
+  position: relative;
+  width: 500px;
+  height: 300px;
+  margin: 100px auto;
+}
+div.content::before, div.content::after {
+  content: "";
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  z-index: 10;
+  width: 90%;
+  height: 90%;
+  box-sizing: border-box;
+  transition: all 0.5s;
+}
+div.content::before {
+  border-top: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  transform: scaleX(0);
+}
+div.content:hover::before {
+  transform: scaleX(1);
+}
+div.content::after {
+  border-left: 3px solid #fff;
+  border-right: 3px solid #fff;
+  transform: scaleY(0);
+}
+div.content:hover::after {
+  transform: scaleY(1);
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
+}
+.img img {
+  width: 100%;
+  height: 100%;
+}
+
+div.content:hover .img {
+  filter: blur(15px);
+}
+
+div.title {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  transition: all 0.3s;
+  opacity: 0;
+  background-color: transparent;
+}
+div.title span {
+  background-image: linear-gradient(to left, blue, red 25%, green 50%, #fdbe41 75%, blue 100%);
+  background-size: 200% 100%;
+  animation: textColor 3s linear;
+  animation-iteration-count: infinite;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -ms-background-clip: text;
+  -o-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  -ms-text-fill-color: transparent;
+  -o-text-fill-color: transparent;
+  text-fill-color: transparent;
+  font-size: 30px;
+}
+div.title h2 {
+  margin-top: 20px;
+  background-image: linear-gradient(to top, green, green 50%, #fdbe41 50%, #fbde41 100%);
+  background-size: 100% 200%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -ms-background-clip: text;
+  -o-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  -ms-text-fill-color: transparent;
+  -o-text-fill-color: transparent;
+  text-fill-color: transparent;
+  animation: h2Color 1.5s linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+div.content:hover div.title {
+  top: 30%;
+  opacity: 1;
+}
+
+@keyframes textColor {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+@keyframes h2Color {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */
