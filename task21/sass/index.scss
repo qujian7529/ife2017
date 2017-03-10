@@ -1,0 +1,30 @@
+ul,li,p,input,label,h1{
+    margin:0;
+    padding:0;
+}
+li{
+    list-style:none;
+}
+ul{
+    width:600px;
+    margin:100px auto;
+    li{
+        width:100%;
+        min-height:40px;
+        background:green;
+        color:#fff;
+        text-align:center;
+        div{
+            height:0;
+            overflow:hidden;
+            outline:1px solid #fff;
+            transition:height 0.5s;
+        }
+    }
+    [type=radio]{
+        opacity:0;
+    }
+    [type=radio]:checked ~ div{
+        height:100px;
+    }   
+}
