@@ -1,59 +1,83 @@
-function Observer(obj){
-    this.data = {};
-    function dataBinding(obj,attr,value){
-        Object.defineProperty(obj,attr,{
-            set:function(newValue){
-                console.log('你设置了'+attr+'，新的值为'+newValue)
-                return newValue;
-            },
-            get:function(){
-                console.log('你访问了'+attr)
-                return value;
-            }
-        })
-    }
-    function forIn(newObj,objValue){
-        for(let i in objValue){
-            newObj[i] = objValue[i];
-            if(typeof  objValue[i] == 'object'){
-                arguments.callee(newObj[i],objValue[i]);
-            }
-            dataBinding(newObj,i,objValue[i]);
-        }
-    }
-    forIn(this.data,obj);
+// 1：数据改动时通知
+// . 深度遍历
+// 2：加入回掉函数
+function Event(){
+    this.events = {};
 }
-Observer.prototype.$watch=function(attr,fcc){
-    function forIn(obj){
-        for(let i in obj){
-            if(i == attr){
-                Object.defineProperty(obj,attr,{
-                    set:fcc||set
-                })
-            }
-            if(typeof obj[i] == 'object'){
-                arguments.callee(obj[i]);
-                return
-            }
+Event.prototype.on = function(attr,callback){
+    if(this.events[attr]){
+        this.events[attr].push(callback);
+    }else{
+        this.events[attr] = [callback];
+    }
+}
+Event.prototype.off = function(attr){
+    for(let key in this.events){
+        if(this.events.hasOwnProperty(key) && key === attr){
+            delete this.events[key];
         }
     }
-    forIn(this);
+}
+Event.prototype.emit = function(attr,key,newVal){
+    this.events[attr] && this.events[attr].forEach(function(item){
+        item(key,newVal);
+    })
 }
 
-let app1 = new Observer({
-    name: {
-        firstName:{
-            one:'one',
-            two:'two'
+
+
+
+
+function Observer(json){
+    this.data = json;
+    this.eventsBus = new Event();
+    this.traversal(this.data);
+};
+
+Observer.prototype.setAndGet = function(obj,attr,val){
+    let _this = this;
+    Object.defineProperty(obj,attr,{
+        set:function(newVal){
+            if(val === newVal) {
+                console.log(1); 
+                return ;
+            } 
+            _this.eventsBus.emit(attr,val,newVal);
+            val = newVal;
+            console.log('你修改了'+attr+'新值为：'+val);
         },
-        lastName:'last'
-    },
-    age: 25
-});
-let app2 = new Observer({
-    university: 'bupt',
-    major: 'computer'
-});
-app1.$watch('age',function(age){
-    console.log('我的年纪变了，现在已经是：'+age+'岁了');
+        get:function(){
+            console.log('你访问了'+attr);
+            return val;
+        }
+    })
+};
+
+Observer.prototype.traversal = function(obj){
+    let _this = this;
+    Object.keys(obj).forEach(function(key){
+        if(typeof obj[key] == 'object'){
+            _this.traversal(obj[key]);
+        }// 深度遍历
+        _this.setAndGet(obj,key,obj[key]);
+    })
+};
+
+Observer.prototype.$watch = function(attr,callback){
+    this.eventsBus.on(attr,callback);
+}
+
+
+
+
+
+let app1 = new Observer({
+    name:'lzf',
+    age:{
+        num:11,
+        sum:12
+    }
+})
+app1.$watch('name',function(val,newVal){
+    console.log(val+'--'+newVal);
 })
