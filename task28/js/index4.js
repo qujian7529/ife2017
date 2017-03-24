@@ -132,7 +132,7 @@ Vue.prototype.setterAndGetter = function(obj,key,val){
     let _this = this;
     Object.defineProperty(obj,key,{
         get:function(){
-            // console.log('你访问了'+key);
+            console.log('你访问了'+key);
             return val;
         },
         set:function(newVal){
