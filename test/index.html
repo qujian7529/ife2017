@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>算式计算器</title>
+</head>
+<style>
+    input[type="text"]{
+        outline:0;
+    }
+    input[type="text"]:focus{
+        outline:1px solid red;
+    }    
+</style>
+<body>
+    <h1>算式计算器</h1>
+    <form action="">
+        <label>
+            <input type="text" name="num" placeholder="请输入算式：" id="j">
+            <span id="val">0</span>
+        </label>
+        <br>
+        <input id="btn" type="button" value="计算">
+    </form>
+</body>
+<script src="js/index4.js"></script>
+</html>
