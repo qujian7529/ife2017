@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>瀑布流 无限加载</title>
+</head>
+<style>
+    *{
+        padding:0;
+        margin:0;
+    }
+    body{
+        /*overflow:hidden;*/
+    }
+    header{
+        height:10vh;
+        width:100vw;
+        background:#f7f7f8;
+        line-height:10vh;
+        text-align:center;
+        font-size:2em;
+        position:fixed;
+        top:0;
+        left:0;
+    }
+    ul{
+        
+        margin-top:10vh;
+        width:100vw;
+        height:90vh;
+        overflow:auto;
+        padding-bottom:10vh;
+        background:#c8c7cc;
+    }
+    li{
+        position:relative;
+        z-index:1000;
+        box-sizing:border-box;
+        width:100vw;
+        height:8vh;
+        padding:0 5vw;
+        margin:0 auto;
+        border-bottom:1px solid #000;
+        line-height:8vh;
+        list-style:none;
+        background:#fff;
+    }
+    li:last-of-type{
+        border:0;
+    }
+    footer{
+        box-sizing:border-box;
+        position:fixed;
+        bottom:0;
+        height:10vh;
+        width:100vw;
+        padding:1vh 0 ;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        z-index:0;
+    }
+    .vanish{
+        display:none;
+    }
+    .rect{
+        height:50%;
+        width:1.5vw;
+        margin:0 1.3vw;
+        background:#67CF22;
+        display:inline-block;
+        animation:bounce 0.8s linear ;
+        animation-iteration-count:infinite;
+    }
+    .rect:nth-of-type(2){
+        animation-delay:0.1s;
+    }
+    .rect:nth-of-type(3){
+        animation-delay:0.2s;
+    }
+    .rect:nth-of-type(4){
+        animation-delay:0.3s;
+    }
+    .rect:nth-of-type(5){
+        animation-delay:0.4s;
+    }
+    @keyframes bounce{
+        59%{
+            transform:scaleY(1)
+        }
+        60%{
+            transform:scaleY(2)
+        }
+        80%{
+            transform:scaleY(1)
+        }
+        100%{
+            transform:scaleY(1)
+        }
+    }
+</style>
+<body>
+    <header>
+        瀑布流 无限加载
+    </header>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+        <li>Item 6</li>
+        <li>Item 7</li>
+        <li>Item 8</li>
+        <li>Item 8</li>
+        <li>Item 9</li>
+        <li>Item 10</li>
+        <li>Item 11</li>
+        <li>Item 12</li>
+        <li>Item 13</li>
+        <li>Item 14</li>
+        <li>Item 15</li>
+    </ul>
+    <footer class="vanish">
+        <div class="rect"></div>
+        <div class="rect"></div>
+        <div class="rect"></div>
+        <div class="rect"></div>
+        <div class="rect"></div>
+    </footer>
+</body>
+<script src="js/index.js"></script>
+</html>
