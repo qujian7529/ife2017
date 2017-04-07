@@ -34,7 +34,7 @@ let get = (event)=>{
     }
 }
 
-// document.addEventListener('mousewheel',get)
+document.addEventListener('mousewheel',get)
 oUl.addEventListener('touchmove',get)
 
 
