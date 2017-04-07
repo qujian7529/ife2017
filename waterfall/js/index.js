@@ -7,7 +7,6 @@ let timer = null;
 let boo = true;
 
 let get = (event)=>{
-    
     //ul已经滚动大小
     var rollTop = oUl.scrollTop;
     //可见ul
@@ -34,8 +33,13 @@ let get = (event)=>{
         },1000)
     }
 }
-document.addEventListener('mousewheel',get)
-
+// document.addEventListener('mousewheel',get)
+oUl.addEventListener('touchmove',()=>{
+    alert(1);
+})
+oUl.touchstart = ()=>{
+    alert(2);
+}
 
 
 
