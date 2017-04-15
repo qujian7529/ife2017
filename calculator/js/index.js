@@ -8,7 +8,7 @@ let sReg = /AC|CE/;
 
 aBtn.forEach((item)=>{
     item.addEventListener('click',()=>{
-        if(oView.innerText === '输入有误！'){
+        if(oView.innerText === '输入有误或者结果无法计算！'){
             str = '';
         }
         //若是 等号  就求值
@@ -47,7 +47,7 @@ aBtn.forEach((item)=>{
         oView.innerHTML = str;
     })
 })
-//清零 退一步 ans
+//清零 退一步 
 function acCeAns(s){  
     let nowStr = ''
     switch(s){
@@ -61,10 +61,10 @@ function acCeAns(s){
     }
     return nowStr;
 }
-//计算编译  0.1 % 0.03
+//计算编译 
 function compile(aNum,aSbl){
     if(aSbl.length >= aNum.length){
-        return '输入有误！';
+        return '输入有误或者结果无法计算！';
     }
     aNum = aNum.map((item)=>{
         return parseFloat(item);
@@ -87,7 +87,7 @@ function compile(aNum,aSbl){
                 if(aNum[index+1] === 0){
                     tempNum = 0;                        
                 } else {
-                    tempNum = arr[0] / arr[1] / arr[2];
+                    tempNum = arr[0] / arr[1];
                 }
             break;
             case (index = aSbl.indexOf('-')) !== -1:
@@ -110,6 +110,7 @@ function calculate(numStr){
     let reverseStr = numStr.split('').reverse().join('');
     // /\d+\.+\-$ | \d+\.+\-(?=%|\*|\/|\+|\-) | \d+\-$|\d+\-(?=%|\*|\/|\+|\-) | \d+\.+ | \d+/g
     //带小数点的负数其位置在开头的时候  带小数点的负数其位置在中间   负数在开头  负数在中间  带小数点数  数  
+    //因为JS没有先行断言  所以要revese 用后行断言模拟 去找负数
     let nReg = /\d+\.+\d+\-$|\d+\.+\d+\-(?=%|\*|\/|\+|\-)|\d+\-$|\d+\-(?=%|\*|\/|\+|\-)|\d+\.+\d+|\d+/g;
     aNum = reverseStr.match(nReg);
     reverStr = reverseStr.replace(nReg,'');
@@ -123,24 +124,30 @@ function calculate(numStr){
     return compile(aNum,aSymbol);
 }
 //去除浮点数影响
-// 0.1 * 0.02   1/2   [1,2,100]  10*2  1000
 function solveFloat(num1,num2){
     let index = 0 ;
     let length = 0;
+    let multiple = '1';
     let arr = []
     let arr1 = [num1,1];
     let arr2 = [num2,1];
     if(num1 % 1 !== 0){
         num1 = num1 + '';
         arr1 = num1.split('.');
-        arr1[0] = Number(arr1[0] + arr1[1]);
-        arr1[1] = arr1[1].length*10;
+        arr1[0] = arr1[0] + arr1[1];
+        for(let i = arr1[1].length ;i>0; i--){
+            multiple += '0';
+        }
+        arr1[1] = Number(multiple);
     } 
     if(num2 % 1 !== 0){
         num2 = num2 + '';
         arr2 = num2.split('.');
-        arr2[0] = Number(arr2[0] + arr2[1]);
-        arr2[1] = arr2[1].length*10;
+        arr2[0] = arr2[0] + arr2[1];
+        for(let i = arr2[1].length ;i>0; i--){
+            multiple += '0';
+        }
+        arr2[1] = Number(multiple);
     }
     if(arr1[1] > arr2[1]){
         arr2[0] = arr2[0] * (arr1[1] / arr2[1]);
@@ -150,7 +157,6 @@ function solveFloat(num1,num2){
         arr1[0] = arr1[0] * (arr2[1] / arr1[1]);
         arr1[1] = arr2[1]; 
     }
-    arr = [arr1[0],arr2[0],arr1[1]];
-    console.log(arr)
+    arr = [Number(arr1[0]),Number(arr2[0]),arr1[1]];
     return arr;
 }
