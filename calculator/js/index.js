@@ -61,7 +61,7 @@ function acCeAns(s){
     }
     return nowStr;
 }
-//计算编译
+//计算编译  0.1 % 0.03
 function compile(aNum,aSbl){
     if(aSbl.length >= aNum.length){
         return '输入有误！';
@@ -71,38 +71,34 @@ function compile(aNum,aSbl){
     })
     let tempNum = 0;
     let index = 0;
+    let arr = [];
     while(aSbl.length !== 0){
+        arr = solveFloat(aNum[index],aNum[index + 1]);
         switch(true){
             case (index = aSbl.indexOf('%')) !== -1:
-                tempNum = aNum[index] % aNum[index + 1];
-                aNum.splice(index,2,tempNum);
-                aSbl.splice(index,1);
+                tempNum = arr[0] % arr[1] / arr[2];
+                // tempNum = aNum[index] % aNum[index + 1];
             break;
             case (index = aSbl.indexOf('*')) !== -1:
-                tempNum = aNum[index] * aNum[index + 1];
-                aNum.splice(index,2,tempNum);
-                aSbl.splice(index,1);
+                tempNum = arr[0] * arr[1] / arr[2];
+                // tempNum = aNum[index] * aNum[index + 1];
             break;
             case (index = aSbl.indexOf('/')) !== -1:
                 if(aNum[index+1] === 0){
                     tempNum = 0;                        
                 } else {
-                    tempNum = aNum[index] / aNum[index + 1];
+                    tempNum = arr[0] / arr[1] / arr[2];
                 }
-                aNum.splice(index,2,tempNum);
-                aSbl.splice(index,1);
             break;
             case (index = aSbl.indexOf('-')) !== -1:
-                tempNum = (aNum[index] - aNum[index + 1]);
-                aNum.splice(index,2,tempNum);
-                aSbl.splice(index,1);
+                tempNum = (arr[0] - arr[1]) / arr[2];
             break;
             case (index = aSbl.indexOf('+')) !== -1:
-                tempNum = aNum[index] + aNum[index + 1];
-                aNum.splice(index,2,tempNum);
-                aSbl.splice(index,1);
+                tempNum = (arr[0] + arr[1]) / arr[2];
             break;
         }
+        aNum.splice(index,2,tempNum);
+        aSbl.splice(index,1);
     }
     return tempNum
 }
@@ -125,4 +121,36 @@ function calculate(numStr){
     aSymbol = reverStr.split('').reverse();
     console.log(aNum,aSymbol);
     return compile(aNum,aSymbol);
+}
+//去除浮点数影响
+// 0.1 * 0.02   1/2   [1,2,100]  10*2  1000
+function solveFloat(num1,num2){
+    let index = 0 ;
+    let length = 0;
+    let arr = []
+    let arr1 = [num1,1];
+    let arr2 = [num2,1];
+    if(num1 % 1 !== 0){
+        num1 = num1 + '';
+        arr1 = num1.split('.');
+        arr1[0] = Number(arr1[0] + arr1[1]);
+        arr1[1] = arr1[1].length*10;
+    } 
+    if(num2 % 1 !== 0){
+        num2 = num2 + '';
+        arr2 = num2.split('.');
+        arr2[0] = Number(arr2[0] + arr2[1]);
+        arr2[1] = arr2[1].length*10;
+    }
+    if(arr1[1] > arr2[1]){
+        arr2[0] = arr2[0] * (arr1[1] / arr2[1]);
+        arr2[1] = arr1[1]; 
+    }
+    if(arr1[1] < arr2[1]){
+        arr1[0] = arr1[0] * (arr2[1] / arr1[1]);
+        arr1[1] = arr2[1]; 
+    }
+    arr = [arr1[0],arr2[0],arr1[1]];
+    console.log(arr)
+    return arr;
 }
