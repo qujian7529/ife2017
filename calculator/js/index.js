@@ -23,6 +23,24 @@ aBtn.forEach((item)=>{
 
         oView.innerHTML = str;
     })
+    //移动端
+    item.addEventListener('touched',(e)=>{
+        e.preventDefault();
+        if(/=/.test(item.value)){
+            if(str.length === 0) { return };
+            console.log(`str: ${str}`);
+            str = calculate(str);
+            oView.innerHTML = str;
+            return
+        }
+        if(sReg.test(item.value)){
+            str = acCeAns(item.value)    
+        } else {
+            str += item.value;
+        }
+
+        oView.innerHTML = str;
+    })
 })
 //清零 退一步 ans
 function acCeAns(s){  
