@@ -23,7 +23,6 @@
         width:310px;
         height:360px;
         padding:10px;
-        border-radius:10px;
         outline:#fff;
         background:#c47335;
     }
@@ -72,7 +71,12 @@
         box-shadow:4px 4px 3px rgba(0,0,0,0.7);
         border:2px solid #da4725;
     }   
-    @media screen and (max-width:414px){
+    @media screen and (min-width:530px){
+        .keyboard>input{
+            border-radius:10px;
+        }
+    }
+    @media screen and (max-width:530px){
         section{
             width:100vw;
             height:100vh;
@@ -93,7 +97,7 @@
             background:#1d1f20;
             position:fixed;
             right:0;
-            bottom:125vw;
+            bottom:115vw;
             color:#fff;
         }
         .keyboard{
@@ -102,9 +106,9 @@
             bottom:0;            
         }
         .keyboard>input{
-            border-radius:0px;
+            border-radius:0;
             width:25vw;
-            height:25vw;
+            height:23vw;
             margin:0;
             font-size:5vh;
             line-height:30px;
