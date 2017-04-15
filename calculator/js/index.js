@@ -8,7 +8,7 @@ let sReg = /AC|CE/;
 
 aBtn.forEach((item)=>{
     item.addEventListener('click',()=>{
-        if(oView.innerText === '输入有误或者结果无法计算！'){
+        if(oView.innerText === '错误！'){
             str = '';
         }
         //若是 等号  就求值
@@ -64,7 +64,7 @@ function acCeAns(s){
 //计算编译 
 function compile(aNum,aSbl){
     if(aSbl.length >= aNum.length){
-        return '输入有误或者结果无法计算！';
+        return '错误！';
     }
     aNum = aNum.map((item)=>{
         return parseFloat(item);
