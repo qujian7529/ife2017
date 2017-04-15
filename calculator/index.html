@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS 计算器</title>
+</head>
+<style>
+    *{
+        padding:0;
+        margin:0;
+    }
+    body{
+        background:#56351e;
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        overflow:hidden;
+    }
+    section{
+        width:310px;
+        height:360px;
+        padding:10px;
+        border-radius:10px;
+        outline:#fff;
+        background:#c47335;
+    }
+    h1{
+        color:rgb(241,153,83);
+        font-size:16px;
+        text-align:center;
+        line-height:18px;
+        margin-bottom:5px;
+    }
+    p{
+        background:#f19953;
+        height:25px;
+        color:#000;
+        text-align:right;
+        padding:0 5px;
+        margin-bottom:5px;
+    }
+    .keyboard{
+        width:100%;
+        display:flex;
+        justify-content:space-between;
+        align-content:space-between;
+        flex-shrink:0;
+        flex-wrap:wrap;
+    }
+    .keyboard>input{
+        width:23%;
+        height:50px;
+        margin-top:10px;
+        border-radius:3px;
+        color:rgb(241,153,83);
+        background:#fff;
+        line-height:50px;
+        text-align:center;
+        font-size:12px;
+        outline:0;
+        border:0;
+        box-shadow:4px 4px 3px rgba(0,0,0,0.3);
+        cursor:pointer;
+    }   
+    .keyboard>input[class="n0"]{
+        width:49%;
+    }    
+    .keyboard>input:focus{
+        box-shadow:4px 4px 3px rgba(0,0,0,0.7);
+        border:2px solid #da4725;
+    }   
+    @media all and (max-width:500px){
+        section{
+            width:100vw;
+            height:100vh;
+            padding-top:5vh;
+        }
+        h1{
+            margin-bottom:2vh;
+            font-size:30px;
+            line-height:30px;
+        }
+        p{
+            height:10vh;
+            font-size:36px;
+            line-height:10vh;
+            overflow:auto;
+            margin:2vh 0;
+        }
+        .keyboard>input{
+            height:12vh;
+            margin-top:15px;
+        }
+    }  
+</style>
+<body>
+    <section>
+        <h1>计 算 器</h1>
+        <p></p>
+        <div class="keyboard">
+            <input type="button" value="AC" class="AC">
+            <input type="button" value="CE" class="CE">
+            <input type="button" value="%" class="quyu">
+            <input type="button" value="/" class="chu">
+            <input type="button" value="7" class="n7">
+            <input type="button" value="8" class="n8">
+            <input type="button" value="9" class="n9">
+            <input type="button" value="*" class="cheng">
+            <input type="button" value="4" class="n4">
+            <input type="button" value="5" class="n5">
+            <input type="button" value="6" class="n6">
+            <input type="button" value="-" class="jian">
+            <input type="button" value="1" class="n1">
+            <input type="button" value="2" class="n2">
+            <input type="button" value="3" class="n3">
+            <input type="button" value="+" class="jia">
+            <input type="button" value="0" class="n0">
+            <input type="button" value="." class="dian">
+            <!--<input type="button" value="Ans" class="Ans">-->
+            <input type="button" value="=" class="dengyu">
+        </div>
+    </section>
+</body>
+<script src="js/index.js"></script>
+</html>
