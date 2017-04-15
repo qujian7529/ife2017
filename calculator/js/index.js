@@ -4,23 +4,28 @@ let oView = document.querySelector('p');
 //解析字符串 按优先级计算
 let str = '';
 let numReg = /\d|\./;
-let sReg = /AC|CE|Ans/;
+let sReg = /AC|CE/;
 
 aBtn.forEach((item)=>{
     item.addEventListener('click',()=>{
+        if(oView.innerText === '输入有误！'){
+            str = '';
+        }
+        //若是 等号  就求值
         if(/=/.test(item.value)){
             if(str.length === 0) { return };
-            console.log(`str: ${str}`);
             str = calculate(str);
             oView.innerHTML = str;
             return
         }
+        //退格 和 归零
         if(sReg.test(item.value)){
             str = acCeAns(item.value)    
         } else {
+            // 除上面3种情况 都拼接字符串
             str += item.value;
         }
-
+        //视图显示
         oView.innerHTML = str;
     })
     //移动端
@@ -44,16 +49,17 @@ aBtn.forEach((item)=>{
 })
 //清零 退一步 ans
 function acCeAns(s){  
+    let nowStr = ''
     switch(s){
         case 'AC':
-            str = '';
+            nowStr = '';
         break;
         case 'CE':
-            str = oView.innerText;
-            str = str.slice(0,str.length-1);
+            nowStr = oView.innerText;
+            nowStr = nowStr.slice(0,nowStr.length-1);
         break;
     }
-    return str;
+    return nowStr;
 }
 //计算编译
 function compile(aNum,aSbl){

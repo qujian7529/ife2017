@@ -77,30 +77,71 @@
             width:100vw;
             height:100vh;
             padding-top:5vh;
+            padding-left:0;
+            padding-right:0;
+            background:#1d1f20;
         }
         h1{
-            margin-bottom:2vh;
-            font-size:30px;
-            line-height:30px;
+            display:none;
         }
         p{
-            height:10vh;
-            font-size:36px;
-            line-height:10vh;
+            height:20vh;
+            font-size:10vh;
+            line-height:27vh;
             overflow:auto;
             margin:2vh 0;
+            background:#1d1f20;
+            position:fixed;
+            right:0;
+            bottom:125vw;
+            color:#fff;
+        }
+        .keyboard{
+            position:fixed;
+            left:0;
+            bottom:0;            
         }
         .keyboard>input{
-            height:12vh;
-            margin-top:15px;
-            border-radius:1px;
+            width:25vw;
+            height:25vw;
+            margin:0;
+            font-size:5vh;
+            line-height:30px;
+            border-radius:0px;
+            box-sizing:border-box;
+            border-right:1px solid #000;
+            border-bottom:1px solid #000;
+        }
+        .keyboard>input[class="n0"]{
+            width:50%;
+        } 
+        .keyboard>input[class="chu"]{
+            border-right:0;
+        } 
+        .keyboard>input[class="cheng"]{
+            border-right:0;
+        } 
+        .keyboard>input[class="jian"]{
+            border-right:0;
+        } 
+        .keyboard>input[class="jia"]{
+            border-right:0;
+        } 
+        .keyboard>input[class="dengyu"]{
+            border-right:0;
+        }  
+        .keyboard>input:focus{
+            box-shadow:none;
+            border:2px solid #da4725;
+            color:#fff;
+            background:rgba(255,255,255,0.1);
         }
     }  
 </style>
 <body>
     <section>
         <h1>计 算 器</h1>
-        <p></p>
+        <p ></p>
         <div class="keyboard">
             <input type="button" value="AC" class="AC">
             <input type="button" value="CE" class="CE">
@@ -120,7 +161,6 @@
             <input type="button" value="+" class="jia">
             <input type="button" value="0" class="n0">
             <input type="button" value="." class="dian">
-            <!--<input type="button" value="Ans" class="Ans">-->
             <input type="button" value="=" class="dengyu">
         </div>
     </section>
