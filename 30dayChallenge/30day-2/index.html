@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>时钟</title>
+</head>
+<style>
+    body{
+        margin:0;
+        padding:0;
+        background-image:url('img/background.jpg');
+        background-size:100vw 100vh;
+    }
+    section{
+        position:absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+        width:360px;
+        height:360px;
+        border:24px solid #fff;
+        padding:25px;
+        border-radius:50%;      
+        background:rgba(0,0,0,0.4);
+        box-shadow:0 0 4px rgba(0,0,0,0.1), 
+        inset 0 0 1px 2px #EFEFEF, 
+        inset 0 0 30px black, 
+        0 0 10px 3px rgba(0,0,0,0.2);
+    }
+    .circle{
+        width:20px;
+        height:20px;
+        background:#a8c5d1;
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        border-radius:50%;
+        z-index:10000;
+    }
+    .circle~div{
+        transform-origin:0 50%;
+        position:absolute;
+        left:50%;
+        top:50%;
+        box-shadow:5px 5px 0px 1px rgba(0,0,0,0.3);
+        transform: rotate(-90deg);
+        transition:all 0.5s;
+    }
+    .hour{
+        border-radius:10px;
+        width:120px;
+        height:8px;
+        margin-top:-4px;
+        background:#fff;
+        z-index:1;
+    }
+    .min{
+        width:140px;
+        height:6px;
+        margin-top:-3px;
+        background:#fff;
+        z-index:2;
+    }
+    .second{
+        border-radius:0 100% 100% 0;
+        width:160px;
+        height:4px;
+        margin-top:-2px;
+        background: red;
+        z-index:3;
+        transform: rotate(1deg);
+    }
+</style>
+<body>
+    <section>
+        <div class="circle"></div>
+        <div class="hour"></div>
+        <div class="min"></div>
+        <div class="second"></div>
+    </section>
+</body>
+<script src="js/index.js"></script>
+</html>
