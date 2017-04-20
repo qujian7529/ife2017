@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS控制CSS</title>
+</head>
+<style>
+    :root{
+        --blur:10px;
+        --spacing:10px;
+        --color:#ff0000;
+    }
+    body,h1,input,label,p{
+        margin:0;
+        padding:0;
+    }
+    body{
+        background:#193549;
+        color:#fff;
+        text-align:center;
+    }
+    h1{
+        font-size:3em;
+    }
+    h1 > span{
+        color:var(--color);
+    }
+    label{
+        font-size:2em;
+    }
+    input{
+        margin-right:30px;
+    }
+    input[type="range"]{
+        width:100px;
+    }
+    input[type="color"]{
+        width:100px;
+        height:30px;
+    }
+    p{
+        font-size:1.5em;
+        font-weight:100;
+        margin:10px 0;
+    }
+    img{
+        padding:var(--spacing);
+        background:var(--color);
+        filter:blur(var(--blur));
+    }
+</style>
+<body>
+    <h1>JS控制<span>CSS</span>属性</h1>
+    <div class="control">
+        <form action="" method="">
+            <label for="spacing">Spacing：</label>
+            <input type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
+            <label for="blur">Blur：</label>
+            <input type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+            <label for="color">Base color：</label>
+            <input type="color" name="color" value="#ff0000">
+            <p id="code">
+                img { padding: <span id="code-spacing">10</span>px; filter: blur(<span id="code-blur">10</span>px); background: <span id="code-color">#ff0000</span>; }
+            </p>
+        </form>
+    </div>
+    <section>
+        <img src="img/background.jpg">
+    </section>
+</body>
+<script src="js/index.js"></script>
+</html>
