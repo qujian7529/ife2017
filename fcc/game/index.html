@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>游戏</title>
+</head>
+<style>
+    @font-face{
+        font-family:'lzf';
+        src:url('Cousine-Regular.ttf');
+    }
+    html{
+        box-sizing:border-box;
+    }
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:inherit;
+    }
+    body{
+        background-image:url(background.png);
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+    section{
+        position:relative;
+        width:540px;
+        height:540px;
+        background-color:#333;
+        padding:20px;
+        border-radius:50%;
+    }
+    .circles{
+        width:100%;
+        height:100%;
+        display:flex;
+        flex-wrap:wrap;
+        border-radius:50%;
+        overflow:hidden;
+    }
+    .circle{
+        width:250px;
+        height:250px;
+        border:20px solid #333;
+        display:flex;
+    }
+    .circle:nth-of-type(1){
+        background:#00a74a;
+        border-radius:100% 0 0 0 ;
+    }
+    .circle:nth-of-type(2){
+        background:#8a0d14;
+        border-radius:0 100%  0 0 ;
+    }
+    .circle:nth-of-type(3){
+        background:#cca707;
+        border-radius: 0 0 0 100%;
+    }    
+    .circle:nth-of-type(4){
+        background:#094a8f;
+        border-radius:0 0 100%  0 ;
+    }    
+    .go{
+        position:absolute;
+        left:50%;
+        top:50%;
+        margin-left:-140px;
+        margin-top:-140px;
+        width:280px;
+        height:280px;
+        border-radius:50%;
+        border:20px solid #333;
+        background:#fff;
+    }
+    .go .title h1{
+        margin:0 auto;
+        width:70px;
+        height:50px;
+        line-height:50px;
+        font-family:'lzf';
+        margin-top:20px;
+        text-align:center;
+        font-size:40px;
+        color:#DC0D29;
+        border-radius:10px;
+        background:#32050c;
+    }
+    div.restart{
+        margin-top:10px;
+        height:80px;
+    }
+    div.restart div{
+        margin:0 auto;
+        width:30px;
+        height:30px;
+        border-radius:50%;
+        background:#FC0102;
+        border:5px solid #333;
+        box-shadow:0 0  5px #000;
+        cursor:pointer;
+    }
+    div.restart div.click{
+        transform:translatey(2px);
+        box-shadow:none;
+    }    
+    div.restart p{
+        margin-top:10px;
+        text-align:center;
+    }    
+    div.switch{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+    div.switch div{
+        width:60px;
+        height:30px;
+        border:4px solid #222;
+        border-radius:3px;
+        background:#222;
+        margin:0 5px;
+        cursor:pointer;
+    } 
+    div.switch div.off{
+        background-image:linear-gradient(to right,#3193de,#3193de  50%,transparent 50%,transparent 100%);
+    }
+    div.switch div.on{
+        background-image:linear-gradient(to left,#3193de,#3193de  50%,transparent 50%,transparent 100%);
+    }
+    pre{
+        position:fixed;
+        bottom:0;
+        left:0;
+        text-align:center;
+    }
+</style>
+<body>
+    <section>
+        <div class="circles">
+            <div class="circle" data-item="0"></div>
+            <div class="circle" data-item="1"></div>
+            <div class="circle" data-item="2"></div>
+            <div class="circle" data-item="3"></div>
+        </div>
+        <div class="go">
+            <div class="title">
+                <h1>--</h1>
+            </div>
+            <div class="restart">
+                <div></div>
+                <p>回放一次</p>
+            </div>
+            <div class="switch">
+                <h1>OFF</h1>
+                <div class="off"></div>
+                <h1>ON</h1>
+            </div>
+        </div>
+    </section>
+    <pre>
+        头部为计数器(每次需要点击的个数).
+        切换为开始状态时.
+        电脑会随机亮起方块.
+        在电脑每次运行完后.玩家需要重复电脑的步骤.
+    </pre>
+    <audio src="music/hihat.wav"></audio>
+    <audio src="music/boom.wav"></audio>
+    <audio src="music/kick.wav"></audio>
+    <audio src="music/ride.wav"></audio>
+</body>
+<script src="test2.js"></script>
+</html>
