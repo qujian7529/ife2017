@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>弹幕墙</title>
+</head>
+<style>
+    body,input{
+        margin:0;
+        padding:0;
+    }
+    body{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+    }
+    body > *{
+        margin-top:10px;
+    }
+    section{
+        position:relative;
+        width:90vw;
+        height:500px;
+        border:1px solid #aaa;
+        overflow:hidden;
+        border-radius:5px;
+    }
+    span{
+        position:absolute;
+        padding:5px 10px;
+        display:block;
+        font-size:22px;
+        line-height:34px;
+    }
+    input{
+        outline:none;
+        height:40px;
+    }
+    input[type="text"]{
+        width:50vw;
+        border:1px solid #aaa;
+        border-radius:5px;
+        text-indent:10px;
+        font-size:16px;
+    }
+    div>input{
+        width: 20vw;
+        border-radius:5px;
+        background:#fff;
+        cursor:pointer;
+        font-size:20px;
+    }
+    #launch{
+        border:1px solid rgb(230, 80, 0);
+        color:rgb(230, 80, 0);
+    }
+    #clear{
+        border:1px solid #aaa;
+        color:#aaa;        
+    }
+</style>
+<body>
+    <section>
+
+    </section>
+    <input type="text" placeholder="说点什么？">
+    <div>
+        <input id="launch" type="button" value="发射">
+        <input id="clear" type="button" value="清屏">
+    </div>
+</body>
+<script src="js/index.js"></script>
+</html>
