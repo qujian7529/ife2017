@@ -1,0 +1,266 @@
+body, h1, p {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+textarea, input {
+  outline: 0;
+  border: 0;
+  resize: none;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #eee inset;
+  outline: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 12px;
+  background: #888;
+}
+
+*, *:after, *:before {
+  box-sizing: inherit;
+}
+
+header {
+  width: 100%;
+  height: 6.66667rem;
+  background: #722872;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+}
+header .box {
+  width: 85.33333rem;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.box .log {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.box .log img {
+  height: 4.16667rem;
+}
+.box .menu {
+  display: flex;
+  height: 3.33333rem;
+  width: 25rem;
+  justify-content: space-around;
+  line-height: 3.33333rem;
+}
+.box .menu a {
+  display: block;
+  width: 7.91667rem;
+  height: 100%;
+  text-align: center;
+  color: #bbb;
+  font-size: 1.66667rem;
+  border-radius: 0.41667rem;
+}
+.box .menu a:not(.current):hover {
+  box-shadow: inset 0 0 0.83333rem #fff;
+  color: #fff;
+}
+.box .menu a.current {
+  background: #fff;
+  color: #000;
+}
+
+main {
+  width: 80.33333rem;
+  margin: 6.66667rem auto 0;
+}
+main .myself {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 26.66667rem;
+  background: #aaa;
+  padding: 4.16667rem 2.5rem;
+}
+main .myself div {
+  width: 50.83333rem;
+  font-size: 2rem;
+  color: #fff;
+  text-align: right;
+}
+main .myself div p {
+  font-size: 1.58333rem;
+}
+main .myself div hr {
+  position: relative;
+  margin: 2.5rem auto;
+  width: 70%;
+  height: 0.41667rem;
+  background: #fff;
+}
+main .myself div hr:after {
+  content: "</>";
+  position: absolute;
+  right: -7.5rem;
+  font-size: 3rem;
+  bottom: -50%;
+  transform: translateY(32%);
+}
+main .myself img {
+  width: 20.83333rem;
+  height: 20.83333rem;
+  border-radius: 50%;
+}
+main .h1 {
+  text-align: center;
+  color: #888;
+  font-size: 2.5rem;
+}
+main .hr {
+  position: relative;
+  width: 60%;
+  height: 0.41667rem;
+  background: #888;
+  margin-top: 2.08333rem;
+  margin-bottom: 2.5rem;
+}
+main .hr:after {
+  content: "</>";
+  padding: 0 0.83333rem;
+  background: #eee;
+  color: #888;
+  font-size: 3.33333rem;
+  position: absolute;
+  left: 50%;
+  top: -2.5rem;
+  transform: translateX(-50%);
+}
+main .photo {
+  width: 100%;
+  background: #eee;
+  padding: 3.33333rem;
+  padding-bottom: 0;
+}
+main .photo .images {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+main .photo .images img {
+  width: 35rem;
+  height: 25rem;
+  margin-bottom: 3.33333rem;
+}
+main .contact {
+  width: 100%;
+  background: #eee;
+  box-shadow: -0.08333rem 0 0.25rem #888;
+  padding-top: 2.5rem;
+}
+main .contact .controls {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 3.33333rem 2.5rem 3.33333rem;
+  margin-top: 4.16667rem;
+}
+main .contact .controls > * {
+  width: 45%;
+}
+main .contact .controls .left {
+  width: 4 0rem;
+  display: flex;
+  flex-direction: column;
+}
+main .contact .controls .left > div {
+  position: relative;
+  margin-bottom: 30px;
+}
+main .contact .controls .left > div label {
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  z-index: 1;
+  color: #888;
+  font-size: 1.41667rem;
+  font-weight: 900;
+  transition: all 0.3s;
+}
+main .contact .controls .left > div textarea, main .contact .controls .left > div input {
+  position: relative;
+  z-index: 2;
+}
+main .contact .controls .left > div .for + label {
+  bottom: 100%;
+}
+main .contact .controls .left > div .for::-webkit-input-placeholder {
+  color: transparent;
+  opacity: 0;
+}
+main .contact .controls .left > div textarea:focus + label, main .contact .controls .left > div input:focus + label {
+  color: #900590;
+  font-size: 2em;
+}
+main .contact .controls .left input {
+  width: 100%;
+  background: #eee;
+  border-bottom: 0.08333rem solid #aaa;
+  height: 5rem;
+  margin-bottom: 2.5rem;
+  font-size: 2.5rem;
+}
+main .contact .controls .left input[type="submit"] {
+  margin-top: 2.5rem;
+  background: #fc635e;
+  border-radius: 0.41667rem;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+main .contact .controls .left input[type="submit"]:hover {
+  background: #ff0800;
+}
+main .contact .controls .left textarea {
+  background: #eee;
+  width: 100%;
+  font-size: 2.5rem;
+  border-bottom: 0.08333rem solid #aaa;
+  height: 16.66667rem;
+}
+main .contact .controls .right {
+  position: relative;
+  font-size: 2rem;
+  color: #888;
+}
+main .contact .controls .right p {
+  margin-bottom: 2.5rem;
+}
+main .contact .controls .right span:last-of-type {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 0.41667rem;
+}
+
+footer {
+  width: 100%;
+  height: 6.5rem;
+  background: #722872;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer h1 {
+  text-align: center;
+  color: #fff;
+}
+
+/*# sourceMappingURL=index.css.map */
