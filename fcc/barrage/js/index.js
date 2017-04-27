@@ -8,6 +8,7 @@
             barrageHair('6666666666');
         } else {
             barrageHair(oText.value);
+            oText.value = '';
         }
     },false)
     oClear.addEventListener('click',function(){
