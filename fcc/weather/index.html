@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let ajax = new XMLHttpRequest();
+    ajax.onreadystatechange = function(){
+        if(ajax.readyState == 4 && ajax.status == 200){
+            console.log(ajax.responseText)
+        }
+    }
+    ajax.open('GET','https://api.seniverse.com/v3/weather/now.json?key=uc1oydiuapskcqmy&location=beijing&language=zh-Hans&unit=c')
+    ajax.send()
+</script>
+</html>
