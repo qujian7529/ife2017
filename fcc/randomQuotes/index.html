@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>随机名言</title>
+    <link rel="stylesheet" href="iconfont.css">
+</head>
+<style>
+    body{
+        background:#342224;
+    }
+    *{
+        box-sizing:border-box;
+    }
+    section{
+        width:580px;
+        height:250px;
+        padding:30px;
+        margin:100px auto 0;
+        background:#fff;
+        border-radius:5px;
+
+    }
+    p{
+        position:relative;
+        text-indent:40px;
+        font-size:20px;
+        height:80px;
+        color:#342224;
+    }
+    p:before{
+        content:"\"";
+        position:absolute;
+        font-size:60px;
+    }
+    p:before{
+        left:-35px;
+        top:-30px;
+    }
+    span{
+        position:absolute;
+        bottom:-20px;
+        right:0;
+        font-size:14px;
+    }
+    #box{
+        margin-top:60px;
+        display:flex;
+        justify-content:space-between;
+    }
+    input{
+        width:130px;
+        height:40px;
+        border:0;
+        outline:0;
+        border-radius:5px;
+        background:#342224;
+        color:#fff;
+        cursor:pointer;
+    }
+    a{
+        position:relative;
+        left:-16px;
+        background-image:none !important;
+        font-size:30px !important;
+        width:30px;
+        height:20px;
+        color:#342224;
+    }
+    .f{
+        font-size:28px !important;
+        position:relative  !important;
+        top:2px;
+    }
+</style>
+<body>
+    <section>
+        <p>
+        </p>
+        <div id="box">
+            <div class="bdsharebuttonbox" data-tag="share_1">
+                <a class="bds_tsina f iconfont icon-qietu10" data-cmd="tsina"></a>
+                <a class="bds_renren  iconfont icon-renren" data-cmd="renren"></a>
+            </div>
+            <input type="button" value="新名言">
+        </div>
+    </section>
+</body>
+<script>
+    
+	with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<script src="index.js"></script>
+</html>
