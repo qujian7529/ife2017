@@ -26,8 +26,13 @@ body{
     background-attachment:fixed;
     background-size:cover;
 }
+@font-face{
+    font-family:apple;
+    src:url('../css/apple.ttf');
+}
 //头部
 header{
+    font-family:apple;
     height:70px;
     padding:10px 50px;
     background:#000;
@@ -75,8 +80,13 @@ header{
 }
 main{
     width:1000px;
+    height:80vh;
     margin:0 auto;
     margin-top:50px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    flex-shrink:0;
     vertical-align:text-top;
     //面包屑
     .path{
@@ -144,9 +154,11 @@ main{
         .hum{
             background:url(../img/sd.png)   left top no-repeat;
             margin-right:10px;
+            background-size:28px;
         }
         .wind{
             background:url(../img/fx.png)   left top no-repeat;
+            background-size:25px;
         }
     }
     .prompt{

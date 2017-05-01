@@ -1,5 +1,15 @@
-let  rovince = '';
-position();
+let rovince = '';
+let oSite = {
+    city:null,
+    province:null,
+}
+if(!localStorage.getItem('oSite')){
+    position();
+} else {
+    nextStep({city:localStorage.getItem('city'),
+        province:localStorage.getItem('province'),
+    });
+}
 //搜索城市
 let oBtn = document.querySelector('input[type="button"]');
 let oVal = document.querySelector('input[type="text"]');
@@ -21,6 +31,10 @@ function position(){
             //获取城市名
             let address = r.address;
             nextStep(address); //{city, province}
+
+            oSite.city = address.city;
+            oSite.province = address.province;
+            saveData();
         }
         else {
             alert('failed'+this.getStatus());
@@ -30,14 +44,27 @@ function position(){
 // 获取 市的上级城市
 function getProvince(lat, lon){
     let ndScript = document.createElement('script');
-    ndScript.src = `https://api.map.baidu.com/geocoder/v2/?callback=renderReverse&location=${lat},${lon}&output=json&pois=1&ak=kCfDctmRp9PsWBBRAb0RAUi3MubuIQK6&callback=get`
+    ndScript.src = `http://api.map.baidu.com/geocoder/v2/?callback=renderReverse&location=${lat},${lon}&output=json&pois=1&ak=kCfDctmRp9PsWBBRAb0RAUi3MubuIQK6&callback=get`
     document.body.insertBefore(ndScript, document.body.firstChild);
     document.body.removeChild(ndScript);
 }
+//获取城市 然后 显示到页面
 function get(data){
     let province = data.result.addressComponent.province;
     let city = data.result.addressComponent.city;
     showAddress(city, province);//地址路径
+    
+    oSite.city = city;
+    oSite.province = province;
+}
+//缓存数据
+function saveData(){
+    let storage = localStorage;
+    if(!storage.getItem('oSite') ){
+        console.log(oSite);
+        localStorage.setItem('city',oSite.city);
+        localStorage.setItem('province',oSite.province);
+    }
 }
 //获取城市后
 function nextStep({city,province = false}){
@@ -46,7 +73,7 @@ function nextStep({city,province = false}){
              days:aDays,
              basic,
             } = parseWeatherObj(json);
-        
+
         showNowWeater(oNow);//现在天气
         shwoDaysWeather(aDays);//3天气
         if(!province){
@@ -114,14 +141,6 @@ function parseWeatherObj(json){
         basic:json.basic,
     }
 }
-//天气状况代码
-/*
-cond    png
-100 晴    1-0白天晴 1-1夜晚晴
-1** 有云  2 多云
-300 有雨  3 雨
-400 雪   4雪
-*/
 //显示现在的天气
 function showNowWeater(now){
     let oTmp = document.querySelector('.now b');//当前温度
@@ -159,6 +178,7 @@ function showNowWeater(now){
     }
     oImg.src = 'img/'+src;
 }
+//显示3天的天气
 function shwoDaysWeather(days){
     let str = '';
     days.forEach(function(item,index){
@@ -209,10 +229,14 @@ function showTime(get){
     setTimeout(showTime, 1000);
 }
 
-
-
-
-
+//天气状况代码
+/*
+cond    png
+100 晴    1-0白天晴 1-1夜晚晴
+1** 有云  2 多云
+300 有雨  3 雨
+400 雪   4雪
+*/
 
 
 

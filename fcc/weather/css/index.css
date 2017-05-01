@@ -34,7 +34,12 @@ body {
   background-size: cover;
 }
 
+@font-face {
+  font-family: apple;
+  src: url("../css/apple.ttf");
+}
 header {
+  font-family: apple;
   height: 70px;
   padding: 10px 50px;
   background: #000;
@@ -83,8 +88,13 @@ header .time span {
 
 main {
   width: 1000px;
+  height: 80vh;
   margin: 0 auto;
   margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-shrink: 0;
   vertical-align: text-top;
 }
 main .path {
@@ -151,9 +161,11 @@ main .about > span {
 main .about .hum {
   background: url(../img/sd.png) left top no-repeat;
   margin-right: 10px;
+  background-size: 28px;
 }
 main .about .wind {
   background: url(../img/fx.png) left top no-repeat;
+  background-size: 25px;
 }
 main .prompt {
   margin-top: 10px;
