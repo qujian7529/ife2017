@@ -1,47 +1,108 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seniverse API Jsonp Test Page</title>
-    <script src="jquery-3.2.1.js"></script>
-  <script type="text/javascript" src="CryptoJS.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>天气预报</title>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=	kCfDctmRp9PsWBBRAb0RAUi3MubuIQK6"></script>
+	<link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-  <div id="content">
-  </div>
-<script>
-  /******** 本示例仅做开发参考使用，不建议在生产环节下暴露 key！ ********/
-  var UID = "UF1F5EBB97"; // 测试用 用户ID，请更换成您自己的用户ID
-  var KEY = "uc1oydiuapskcqmy"; // 测试用key，请更换成您自己的 Key
-  var API = "https://api.seniverse.com/v3/weather/now.json"; // 获取天气实况
-  var LOCATION = "beijing"; // 除拼音外，还可以使用 v3 id、汉语等形式
-  // 获取当前时间戳
-  var ts = Math.floor((new Date()).getTime() / 1000);
-  // 构造验证参数字符串
-  var str = "ts="+ts+"&uid=" + UID;
-  // 使用 HMAC-SHA1 方式，以 API 密钥（key）对上一步生成的参数字符串（raw）进行加密
-  // 并将加密结果用 base64 编码，并做一个 urlencode，得到签名 sig
-  var sig = CryptoJS.HmacSHA1(str, KEY).toString(CryptoJS.enc.Base64);
-  sig = encodeURIComponent(sig);
-  str = str + "&sig=" + sig;
-  var jsonpCallback = function(data) {
-    var obj = document.getElementById('content');
-    var weather = data.results[0];
-    var text = [];
-    text.push("Location: " + weather.location.path);
-    text.push("Weather: " + weather.now.text);
-    text.push("Temperature: " + weather.now.temperature);
-    obj.innerText = text.join("\n");
-  }
-  // 构造最终请求的 url
-  var url = API + "?location=" + LOCATION + "&" + str + "&callback=jsonpCallback";
-  console.log(url)
-  // 向 HTML 中动态插入 script 标签，通过 JSONP 的方式进行调用
-  var newScript = document.createElement('script');
-  newScript.type = 'text/javascript';
-  newScript.src = url;
-  $('body').append(newScript);
-</script>
+	<header>
+		<div>
+			<form action="" onsubmit="return false;">
+				<input  id="city" type="text" placeholder="请输入城市名">
+				<input type="button" 	value="查看" >
+			</form>
+			<div class="time">
+				<span class="hour">00</span>
+				<em>：</em>
+				<span class="min">00</span>
+				<em>：</em>
+				<span class="s">00</span>
+		</div>
+		</div>
+		
+	</header>
+	<main>
+		<div class="path">
+			<span>天气</span>
+			<i></i>
+			<span>中国</span>
+			<i></i>
+			<span class="province">获取中</span>
+			<I></I>
+			<span class="city">获取中</span>
+		</div>
+		<div class="weather">
+			<div class="now">
+				<b>21</b>
+				<span>
+					<img class="wImg" src="./img/2.png" alt="">
+				</span>
+				<span class="cond">阴</span>
+				<span class="time">今天19:55更新</span>
+			</div>
+			<div class="about">
+				<span class="hum">湿度 27%</span>
+				<span class="wind">东方 6级</span>
+			</div>
+			<div class="prompt">
+				<span>今日天气提示</span>
+				<span class="comf">
+					略微偏凉，还是蛮舒适的。
+				</span>
+			</div>
+		</div>
+		<div class="forecast">
+			<div class="title">
+				<ul class="title">
+					<li></li>
+					<li>天气情况</li>
+					<li>温度</li>
+					<li>风向</li>
+					<li>风力</li>
+					<li>相对湿度</li>
+					<li>降水概率</li>
+				</ul>
+				<div class="days">
+					<ul>
+						<li>今日</li>
+						<li>多云</li>
+						<li>47%</li>
+						<li>东南风</li>
+						<li>4级</li>
+						<li>40</li>
+						<li>0%</li>
+					</ul>
+					<ul>
+						<li>今日</li>
+						<li>多云</li>
+						<li>47%</li>
+						<li>东南风</li>
+						<li>4级</li>
+						<li>40</li>
+						<li>0%</li>
+					</ul>
+					<ul>
+						<li>今日</li>
+						<li>多云</li>
+						<li>47%</li>
+						<li>东南风</li>
+						<li>4级</li>
+						<li>40</li>
+						<li>0%</li>
+					</ul>
+				</div>
+				
+			</div>
+			<div class="aside">
+				<img src="img/man.png" alt="">
+			</div>
+		</div>
+	</main>
+	<!--js-->
+	<script src="js/index.js"></script>
+	<!--<script src="http://api.map.baidu.com/geocoder/v2/?callback=renderReverse&location=39.983424,116.322987&output=json&pois=1&ak=kCfDctmRp9PsWBBRAb0RAUi3MubuIQK6&callback=get"></script>-->
 </body>
 </html>

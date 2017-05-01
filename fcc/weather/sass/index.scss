@@ -1,0 +1,214 @@
+h1,ul,li,b,em,body,video{
+    margin:0;
+    padding:0;
+} 
+li{
+    list-style:none;
+}
+html{
+    box-sizing:border-box;
+}
+*,*:after,*:before{
+    box-sizing:inherit;
+} 
+em{
+    font-style:normal;
+}
+input{
+    border:0;
+    outline:0;
+    -webkit-appearance: none;
+}
+body{
+    background-image:url(../img/bg.jpg);
+    background-position:center top  ;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-size:cover;
+}
+//头部
+header{
+    height:70px;
+    padding:10px 50px;
+    background:#000;
+    &>div{
+        height:100%;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        width:1000px;
+        margin:0 auto;
+    }
+    form{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+    input{
+        height:35px;
+        font-size:16px;
+        color:#fff;
+    }
+    input[type="text"]{
+        width:200px;
+        color:#000;
+        text-indent:10px;
+    }
+    input[type="button"]{
+        width:50px;
+        cursor:pointer;
+        background:#36cf4c;
+    }
+    .time{
+        color:#fff;
+        display:flex;
+        align-items:center;
+        font-size:30px;
+        em{
+            width:17px;
+        }
+        span{
+            width:36px;
+            text-align:center;
+        }
+    }
+}
+main{
+    width:1000px;
+    margin:0 auto;
+    margin-top:50px;
+    vertical-align:text-top;
+    //面包屑
+    .path{
+        display:flex;
+        align-items:center;
+        i{
+            color:rgba(255,255,255,0.6); 
+            margin:0 5px;
+            width:15px;
+            height:15px;
+            border:2px solid currentColor;
+            border-bottom:0;
+            border-left:0;
+            transform:translateX(-5px) rotate(45deg);
+        }
+        span{
+            color:rgba(255,255,255,0.6); 
+            box-sizing:content-box;
+            display:inline-block;
+            padding:5px 10px;
+            border:1px solid currentColor;
+            border-radius:5px;
+        }
+        .city{
+            color:#fff;
+        }
+    }
+    //about
+    .weather{
+        color:#fff;
+        .now{
+            height:230px;
+            >b{
+                position:relative;;
+                font-size:190px;
+            }
+            >b:after{
+                content:"。";
+                position:absolute;
+                right:-64px;
+                top:-10px;
+                font-size:69px;
+                font-weight:300;
+            }
+            span>img{
+                width:100px;
+                position:relative;
+                bottom:-10px;
+            }
+            .cond{
+                font-size:40px;
+                font-weight:900;
+                margin-right:10px;
+            }
+        }
+    }
+    //速度 风
+    .about{
+        height:28px;
+        line-height:28px;
+        font-size:20px;
+        >span{
+            padding-left:30px;
+        }
+        .hum{
+            background:url(../img/sd.png)   left top no-repeat;
+            margin-right:10px;
+        }
+        .wind{
+            background:url(../img/fx.png)   left top no-repeat;
+        }
+    }
+    .prompt{
+        margin-top:10px;
+        height:35px;
+        line-height:35px;
+        padding-left:10px;
+        .comf{
+            margin-left:20px;
+        }
+    }
+    .forecast{
+        padding-top:20px;
+        display:flex;
+        height:220px;
+        justify-content:space-between;
+        ul{
+            display:flex;
+            width:875px;
+            height:50px;
+            justify-content:space-between;
+            align-items:center;
+            color:#fff;
+            font-size:18px;
+            text-align:center;
+            li{
+                line-height:40px;
+                height:40px;
+                width:14.2%;
+            }
+            
+        }
+        ul.title{
+            background:rgba(0,0,0,0.6);
+            border:0;
+        }
+        .days{
+            width:100%;
+            background:rgba(0,0,0,0.2);
+            height:150px;
+        }
+        .days ul{
+            border-bottom:1px solid #7b7b7b;
+        }
+        .days li{
+            padding:10px 0;
+            line-height:30px;
+        }
+        .aside{
+            width:125px;
+            height:220px;
+            img{
+                height:220px;
+            }
+        }
+    }
+}
+#allmap{
+    display:none;
+}
+video{
+    position: fixed;  
+    right: 0;  
+    bottom: 0;  
+}
