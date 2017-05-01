@@ -159,13 +159,13 @@ main .about > span {
   padding-left: 30px;
 }
 main .about .hum {
-  background: url(../img/sd.png) left top no-repeat;
+  background: url(../img/sd.png) left center no-repeat;
   margin-right: 10px;
-  background-size: 28px;
+  background-size: 20px;
 }
 main .about .wind {
-  background: url(../img/fx.png) left top no-repeat;
-  background-size: 25px;
+  background: url(../img/fx.png) left center no-repeat;
+  background-size: 20px;
 }
 main .prompt {
   margin-top: 10px;
