@@ -30,7 +30,7 @@ function position(){
 // 获取 市的上级城市
 function getProvince(lat, lon){
     let ndScript = document.createElement('script');
-    ndScript.src = `http://api.map.baidu.com/geocoder/v2/?callback=renderReverse&location=${lat},${lon}&output=json&pois=1&ak=kCfDctmRp9PsWBBRAb0RAUi3MubuIQK6&callback=get`
+    ndScript.src = `https://api.map.baidu.com/geocoder/v2/?callback=renderReverse&location=${lat},${lon}&output=json&pois=1&ak=kCfDctmRp9PsWBBRAb0RAUi3MubuIQK6&callback=get`
     document.body.insertBefore(ndScript, document.body.firstChild);
     document.body.removeChild(ndScript);
 }
