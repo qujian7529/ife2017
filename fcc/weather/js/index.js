@@ -89,7 +89,7 @@ function getCityWeather(city ,fun){
     let data = null;
     ajax.onreadystatechange = function(){
         if(ajax.readyState == 4 && ajax.status == 200){
-            nowJson = JSON.parse(ajax.responseText);
+            let nowJson = JSON.parse(ajax.responseText);
 
             fun && fun(nowJson);
         } 
