@@ -19,6 +19,10 @@ input{
     outline:0;
     -webkit-appearance: none;
 }
+input:-webkit-autofill{
+    -webkit-box-shadow: 0 0 0 1000px #fff inset;
+    outline:0;
+}
 body{
     background-image:url(../img/bg.jpg);
     background-position:center top  ;
@@ -27,12 +31,201 @@ body{
     background-size:cover;
 }
 @font-face{
-    font-family:apple;
+    font-family:"apple";
     src:url('../css/apple.ttf');
 }
+//加载动画
+#loading{
+	background-color: #ff9311;
+	height: 100vh;
+	width: 100vw;
+	position: fixed;
+	z-index: 1;
+	margin-top: 0px;
+	top: 0px;
+}
+#loading-center{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	}
+#loading-center-absolute {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	height: 100px;
+	width: 100px;
+	margin-top: -50px;
+	margin-left: -50px;
+}
+.object{
+	position: absolute;
+	height: 10px;
+	width: 50px;		
+	background-color: #FFF;
+}	
+.object:nth-child(2n+0) {
+	-webkit-animation: animate_right 2s infinite;
+	animation: animate_right 2s infinite;
+}
+.object:nth-child(2n+1) {
+	-webkit-animation: animate_left 2s infinite;
+	animation: animate_left 2s infinite;
+}		
+.object:nth-child(1){
+	top: 0px;
+	left: 0px;	
+	}
+.object:nth-child(2){
+	top: 0px;
+	left: 50px;
+	}
+.object:nth-child(3){
+	top: 10px;
+	left: 0px;	
+	-webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;	
+	}
+.object:nth-child(4){
+	top: 10px;
+	left: 50px;
+	-webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;	
+	}
+.object:nth-child(5){
+	top: 20px;
+	left: 0px;
+	-webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;	
+	}
+.object:nth-child(6){
+	top: 20px;
+	left: 50px;
+	-webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+	}
+.object:nth-child(7){
+	top: 30px;
+	left: 0px;	
+	-webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;		
+	}
+.object:nth-child(8){
+	top: 30px;
+	left: 50px;
+	-webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;	
+	}
+.object:nth-child(9){
+	top: 40px;
+	left: 0px;	
+	-webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+	}				
+.object:nth-child(10){
+	top: 40px;
+	left: 50px;	
+	-webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+	}	
+.object:nth-child(11){
+	top: 50px;
+	left: 0px;	
+	-webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+	}				
+.object:nth-child(12){
+	top: 50px;
+	left: 50px;	
+	-webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+	}	
+.object:nth-child(13){
+	top: 60px;
+	left: 0px;	
+	-webkit-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+	}				
+.object:nth-child(14){
+	top: 60px;
+	left: 50px;	
+	-webkit-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+	}	
+.object:nth-child(15){
+	top: 70px;
+	left: 0px;	
+	-webkit-animation-delay: 0.7s;
+    animation-delay: 0.7s;
+	}				
+.object:nth-child(16){
+	top: 70px;
+	left: 50px;	
+	-webkit-animation-delay: 0.7s;
+    animation-delay: 0.7s;
+	}
+.object:nth-child(17){
+	top: 80px;
+	left: 0px;	
+	-webkit-animation-delay: 0.8s;
+    animation-delay: 0.8s;
+	}				
+.object:nth-child(18){
+	top: 80px;
+	left: 50px;	
+	-webkit-animation-delay: 0.8s;
+    animation-delay: 0.8s;
+	}
+.object:nth-child(19){
+	top: 90px;
+	left: 0px;	
+	-webkit-animation-delay: 0.9s;
+    animation-delay: 0.9s;
+	}				
+.object:nth-child(20){
+	top: 90px;
+	left: 50px;	
+	-webkit-animation-delay: 0.9s;
+    animation-delay: 0.9s;
+	}
+
+@-webkit-keyframes animate_right {
+50% {
+	-ms-transform: translate(200px,-200px) rotate(180deg); 
+   	-webkit-transform: translate(200px,-200px) rotate(180deg); 
+    transform: translate(200px,-200px) rotate(180deg); 
+  }
+}
+
+@keyframes animate_right {
+50% {
+	-ms-transform: translate(200px,-200px) rotate(180deg); 
+   	-webkit-transform: translate(200px,-200px) rotate(180deg); 
+    transform: translate(200px,-200px) rotate(180deg); 
+  }
+}
+	
+
+
+@-webkit-keyframes animate_left {
+50% {
+	-ms-transform: translate(-200px,-200px) rotate(180deg); 
+   	-webkit-transform: translate(-200px,-200px) rotate(180deg); 
+    transform: translate(-200px,-200px) rotate(180deg); 
+  }
+}
+
+@keyframes animate_left {
+50% {
+	-ms-transform: translate(-200px,-200px) rotate(180deg); 
+   	-webkit-transform: translate(-200px,-200px) rotate(180deg); 
+    transform: translate(-200px,-200px) rotate(180deg); 
+  }
+}
+
 //头部
 header{
-    font-family:apple;
+    font-family:"apple" !important;
     height:70px;
     padding:10px 50px;
     background:#000;
@@ -55,9 +248,44 @@ header{
         color:#fff;
     }
     input[type="text"]{
-        width:200px;
+        width:100%;
         color:#000;
         text-indent:10px;
+        transition:all 0.5s;
+        background:#fff;
+    }
+    input[type="text"]:focus{
+        box-shadow:inset 0 0 0 1000px transparent;
+    }
+    label{
+        width:200px;
+        height:35px;
+        transition:width 0.3s;
+    } 
+    label.focus{
+        width:400px;
+    }
+    .search ul{
+        display:none;
+        position:relative;
+        z-index:10000;
+        width:100%;
+        padding:10px 0;
+        background:#f1f4f7;
+        overflow:hidden;
+        li{
+            width:100%;
+            height:35px;
+            line-height:35px;
+            font-size:16px;
+            padding:0 30px;
+            color:#747989;
+            cursor:pointer;
+            &:hover{
+                background:#111;
+                color:#fff;
+            }
+        }
     }
     input[type="button"]{
         width:50px;
