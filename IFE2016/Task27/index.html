@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/index.css">
+    <title>行星与飞船(一)</title>
+</head>
+<body>
+    <div class="box">
+        <!--日志-->
+        <div class="log">
+            <h3>日志</h3>
+            <!--信息-->
+        </div>
+        <!--视图-->
+        <div class="console">
+            <div class="view">
+                <div id="center"></div>
+                <!--飞船-->
+            </div>
+        </div>
+        <!--控制台-->
+        <div class="fn">
+            <div id="go">
+                <div class="power">
+                    <span>动力系统选择：</span>
+                    <label>
+                        <input type="radio" name="power" value="30-5" checked>
+                        前进号(速率30px/s,能耗 5%/s)
+                    </label>
+                    <label>
+                        <input type="radio" name="power" value="50-7">
+                        奔腾号(速率50px/s,能耗 7%/s)
+                    </label>
+                    <label>
+                        <input type="radio" name="power" value="80-9">
+                        超越号(速率80px/s,能耗 9%/s)
+                    </label>
+                </div>
+                <div class="energy">
+                    <span>能源系统选择：</span>
+                    <label>
+                        <input type="radio" name="energy" value="2" checked>
+                        劲量型(补充能源2%/s)
+                    </label>
+                    <label>
+                        <input type="radio" name="energy" value="3">
+                        光能型(补充能源3%/s)
+                    </label>
+                    <label>
+                        <input type="radio" name="energy" value="4">
+                        永久型(补充能源4%/s)
+                    </label>
+                </div>
+                <input id="create" type="button" name="create" value="创建新飞船">
+            </div>
+            <div class="control">
+                
+            </div>
+        </div>
+    </div>
+    <pre>
+
+
+
+
+
+
+                    每个飞船由以下部分组成
+                1: 动力系统，可以完成飞行和停止飞行两个行为，暂定所有飞船的动力系统飞行速度是一致的，比如每秒20px，飞行过程中会按照一定速率消耗能源（比如每秒减5%）
+                2: 能源系统，提供能源，并且在宇宙中通过太阳能充电（比如每秒增加2%，具体速率自定）
+                3: 信号接收处理系统，用于接收行星上的信号
+                4: 自爆系统，用于自我销毁
+                5: 每个飞船的能源是有限的，用一个属性来表示能源剩余量，这是一个百分比，表示还剩余多少能源。
+                能源耗尽时，飞船会自动停止飞行
+                6: 飞船有两个状态：飞行中和停止，飞船的行为会改变这个属性状态
+                飞船的自我销毁方法会立即销毁飞船自身
+                行星上有一个指挥官（不需要在页面上表现出其形象），指挥官可以通过行星上的信号发射器发布如下命令
+                创建一个新的飞船进入轨道，最多可以创建4个飞船，刚被创建的飞船会停留在某一个轨道上静止不动
+                1: 命令某个飞船开始飞行，飞行后飞船会围绕行星做环绕运动，需要模拟出这个动画效果
+                2: 命令某个飞船停止飞行
+                3: 命令某个飞船销毁，销毁后飞船消失、飞船标示可以用于下次新创建的飞船
+                你需要设计类似如下指令格式的数据格式
+                {
+                    id: 1,
+                    commond: 'stop'
+                }
+                指挥官通过信号发射器发出的命令是通过一种叫做Mediator的介质进行广播
+                4: Mediator是单向传播的，只能从行星发射到宇宙中，在发射过程中，有30%的信息传送失败（丢包）概率，你需要模拟这个丢包率，另外每次信息正常传送的时间需要1秒
+                指挥官并不知道自己的指令是不是真的传给了飞船，飞船的状态他是不知道的，他只能通过自己之前的操作来假设飞船当前的状态
+                5: 每个飞船通过信号接收器，接受到通过Mediator传达过来的指挥官的广播信号，但因为是广播信号，所以每个飞船能接受到指挥官发出给所有飞船的所有指令，因此需要通过读取信息判断这个指令是不是发给自己的
+    </pre>
+<script src="js/index.js"></script>
+</body>
+</html>
